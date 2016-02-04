@@ -57,18 +57,18 @@ public class Auction
     {
         Lot selectedLot = getLot(lotNumber);
         if(selectedLot != null) {
-            Bid bid = new Bid(bidder, value);
-            boolean successful = selectedLot.bidFor(bid);
+            
+            boolean successful = selectedLot.bidFor( new Bid (bidder, value));
             if(successful) {
                 System.out.println("The bid for lot number " +
                                    lotNumber + " was successful.");
             }
             else {
                 // Report which bid is higher.
-                Bid highestBid = selectedLot.getHighestBid();
+                
                 System.out.println("Lot number: " + lotNumber +
                                    " already has a bid of: " +
-                                   highestBid.getValue());
+                                   selectedLot.getHighestBid().getValue());
             }
         }
     }
@@ -101,4 +101,56 @@ public class Auction
             return null;
         }
     }
+    
+    /**
+      * 
+     */
+     public void close()
+     {
+         for (Lot elemento : lots)
+         {
+             System.out.println(elemento.toString());
+             Bid pujaMasAlta = elemento.getHighestBid();
+             if(elemento.getHighestBid() == null)
+             {
+                 System.out.println("No hay pujas para el elemento buscado");
+                }
+                else
+                {
+                     System.out.println(" El nombre de la persona que ha pujado mas alto es: " + elemento.getHighestBid().getBidder().getName());
+                      System.out.println("El precio de cuanto pujo sobre el objeto fue de: " + elemento.getHighestBid().getValue());
+                }
+            }
+        }
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
 }
