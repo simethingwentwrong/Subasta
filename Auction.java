@@ -11,7 +11,7 @@ public class Auction
 {
     // The list of Lots in this auction.
     private ArrayList<Lot> lots;
-   
+    private ArrayList<Lot> items;
     // The number that will be given to the next lot entered
     // into this auction.
     private int nextLotNumber;
@@ -129,12 +129,12 @@ public class Auction
     */
     public ArrayList<Lot> getUnsold()
     {
-        items = new  ArrayList<item>();
+        items = new  ArrayList<Lot>();
         for (Lot elemento : lots)
         {
          if (elemento.getHighestBid() == null)
          {
-           items.add(getHighestBid());      
+           add.(elemento.getHighestBid());      
          }
     
         
