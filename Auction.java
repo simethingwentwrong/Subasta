@@ -11,6 +11,7 @@ public class Auction
 {
     // The list of Lots in this auction.
     private ArrayList<Lot> lots;
+   
     // The number that will be given to the next lot entered
     // into this auction.
     private int nextLotNumber;
@@ -103,7 +104,7 @@ public class Auction
     }
     
     /**
-      * 
+     * Muestra por pantalla los detalles de todos los items que se estén subastando actualmente. De aquellos por los que haya habido pujas se debe indicar el nombre de la persona que ha hecho la puja más alta y el valor de dicha puja; del resto debe indicar que no ha habido pujas.
      */
      public void close()
      {
@@ -113,44 +114,62 @@ public class Auction
              Bid pujaMasAlta = elemento.getHighestBid();
              if(elemento.getHighestBid() == null)
              {
-                 System.out.println("No hay pujas para el elemento buscado");
-                }
-                else
-                {
-                     System.out.println(" El nombre de la persona que ha pujado mas alto es: " + elemento.getHighestBid().getBidder().getName());
-                      System.out.println("El precio de cuanto pujo sobre el objeto fue de: " + elemento.getHighestBid().getValue());
-                }
+                System.out.println("No hay pujas para el elemento buscado");
+             }
+             else
+             {
+                System.out.println(" El nombre de la persona que ha pujado mas alto es: " + elemento.getHighestBid().getBidder().getName());
+                System.out.println("El precio de cuanto pujo sobre el objeto fue de: " + elemento.getHighestBid().getValue());
+             }
             }
-        }
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
+    }
+    
+    /**
+    * devuelva una colección de todos los items por los que no habido ninguna puja en este momento
+    */
+    public ArrayList<Lot> getUnsold()
+    {
+        items = new  ArrayList<item>();
+        for (Lot elemento : lots)
+        {
+         if (elemento.getHighestBid() == null)
+         {
+           items.add(getHighestBid());      
+         }
+    
+        
+       }
+    }
 }
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+
